@@ -71,7 +71,7 @@ div img {
 	justify-content: space-between;
 	flex-grow: 1;
 	flex-shrink: 1;
-	flex-basis: calc((100% - 4% * 2) / 3);
+	flex-basis: calc((100%) / 3);
 	min-width: 60px;   
 	max-width: 182px;
 	box-sizing: border-box;
