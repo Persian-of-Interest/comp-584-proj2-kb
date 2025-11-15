@@ -55,6 +55,37 @@ div img {
 	background-color: #FFFCE6;
 }
 
+.col-3 {
+	background-color: #E6F2E6;
+}
+  
+.col-4 {
+	background-color: #FDEEE6;
+}
+  
+/* Row 6 unique layout */
+.col-mini {
+	background-color: #E8E8E8;
+	text-align: center;
+	padding: 10px;
+	justify-content: space-between;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: calc((100% - 4% * 2) / 3);
+	min-width: 60px;   
+	max-width: 182px;
+	box-sizing: border-box;
+	flex-wrap: wrap;           
+}
+  
+  /* Round Images */
+  .col-mini img {
+	width: 100%;
+	aspect-ratio: 1 / 1;   /* Forces a circlur image even if the image is rectangular, so no more ovals */
+	object-fit: cover;
+	border-radius: 50%;
+  } 
+
 /* Tablet Landscape Screen Sizes */
 @media only screen and (min-width: 480px)  {
 	
@@ -63,9 +94,18 @@ div img {
 		flex: 0 0 44%;
 	}
   
-  
+	.col-3 {
+		flex: 0 0 92%;
+	}
+	
+	.col-4 {
+		flex: 0 0 92%;
+	}
 
-
+	/* Adjust order for row 5 */
+	.row:nth-of-type(5) .col-1.order-2 {
+		order: 3;
+	}  
 
 }
 /* Desktop screen Sizes */
@@ -80,6 +120,19 @@ div img {
   
 	.col-2 {
 		flex: 0 0 44%;
+	}
+
+	.col-3 {
+		flex: 0 0 68%;
+	}
+	
+	.col-4 {
+		flex: 0 0 92%;
+	}
+	
+	  /* Adjust order for row 5 desktop */
+	.row:nth-of-type(5) .col-1.order-2 {
+		order: 2;
 	}
 
 }
