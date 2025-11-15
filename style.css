@@ -56,16 +56,16 @@ div img {
 }
 
 .col-3 {
-	background-color: #E6F2E6;
+	background-color: #F2CC39;
 }
   
 .col-4 {
-	background-color: #FDEEE6;
+	background-color: #C2B8AD;
 }
   
 /* Row 6 unique layout */
 .col-mini {
-	background-color: #E8E8E8;
+	background-color: #E6F2E6;
 	text-align: center;
 	padding: 10px;
 	justify-content: space-between;
@@ -106,6 +106,33 @@ div img {
 	.row:nth-of-type(5) .col-1.order-2 {
 		order: 3;
 	}  
+	
+	/* Row 1: 2 per row only */
+	.row:nth-of-type(1) .col-1 {
+		flex: 0 0 44%;
+	}
+	
+	/* Row 3: each gets own row */
+	.row:nth-of-type(3) .col-1,
+	.row:nth-of-type(3) .col-3 {
+		flex: 0 0 92%;
+	}
+	
+	/* Row 5: tablet layout - large column above, narrow columns below side by side */
+	.row:nth-of-type(5) {
+		flex-wrap: wrap;
+	}
+	
+	.row:nth-of-type(5) .col-2 {
+		order: 1;          /* large middle column on top */
+		flex: 0 0 92%;     /* full width */
+	}
+	
+	.row:nth-of-type(5) .col-1.order-1,
+	.row:nth-of-type(5) .col-1.order-2 {
+		order: 2;          /* narrow columns come after */
+		flex: 0 0 44%;     /* two per row below */
+	}
 
 }
 /* Desktop screen Sizes */
@@ -130,9 +157,39 @@ div img {
 		flex: 0 0 92%;
 	}
 	
-	  /* Adjust order for row 5 desktop */
+	/* Adjust order for row 5 desktop */
 	.row:nth-of-type(5) .col-1.order-2 {
 		order: 2;
+	}
+
+	/* Reset Row 1 for desktop: whatever the desktop layout should be */
+	.row:nth-of-type(1) .col-1 {
+		flex: 0 0 20%; 
+	}
+
+	/* Reset Row 3 for desktop */
+	.row:nth-of-type(3) .col-1 {
+		flex: 0 0 20%;   /* 1-column-wide item */
+	}
+	
+	.row:nth-of-type(3) .col-3 {
+		flex: 0 0 68%;   /* 3-column-wide item */
+	}
+
+	/* Reset Row 5 for desktop to original layout */
+	.row:nth-of-type(5) {
+		flex-wrap: nowrap;
+	}
+
+	.row:nth-of-type(5) .col-2 {
+		order: initial;
+		flex: 0 0 44%;
+	}
+
+	.row:nth-of-type(5) .col-1.order-1,
+	.row:nth-of-type(5) .col-1.order-2 {
+		order: initial;
+		flex: 0 0 20%;
 	}
 
 }
